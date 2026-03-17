@@ -26,11 +26,11 @@ public class UserManager {
     }
 
     //按ID查找
-    public String findUserById(String userId) {
+    public User findUserById(String userId) {
         for (int i = 0; i < usersCount; i++) {
             if (users[i].getUserId().equals(userId)) {
                 System.out.println("User ID: " + users[i].getUserId());
-                return users[i].getUserId();
+                return users[i];
             }
         }
         System.out.println("未找到User ID");

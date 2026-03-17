@@ -1,15 +1,16 @@
 import java.util.Arrays;
 
 public class User {
-    String userId;
-    String name;
-    UserRole role;
-    String [] borrowedBookIds;
-    int borrowCount;
+    private String userId;
+    private String name;
+    private UserRole role;
+    private String [] borrowedBookIds;
+    private int borrowCount;
 
-    public User(String userId, String name, String [] borrowedBookIds, int borrowCount) {
+    public User(String userId, String name, UserRole role,String [] borrowedBookIds, int borrowCount) {
         this.userId = userId;
         this.name = name;
+        this.role = role;
         this.borrowedBookIds = borrowedBookIds;
         this.borrowCount = borrowCount;
     }
@@ -46,12 +47,29 @@ public class User {
 
     //获取借阅图书Id
     public String[] getBorrowedBookIds() {
-        return borrowedBookIds;
+        return borrowedBookIds;//返回数组
     }
 
     //设置借阅图书Id
     public void setBorrowedBookIds(String[] borrowedBookIds) {
         this.borrowedBookIds = borrowedBookIds;
+    }
+
+    //增加借阅图书Id
+    public void updateBorrowedBookIds(String bookId) {
+        setBorrowCount(getBorrowCount() + 1);//借阅数量加1
+        borrowedBookIds[getBorrowCount()] = bookId;//把bookId存到borrowedBookIds数组最新的位置
+    }
+
+    //删除借阅图书Id
+    public void deleteBorrowedBookIds(int i) {
+        //删除不一定删除数组最新
+        for (int j = i + 1; j < getBorrowCount(); j++ ){//删除i,后面往前移动
+            borrowedBookIds[j - 1] = borrowedBookIds[j];
+        }
+        borrowedBookIds[getBorrowCount()] = null;//数组最后一位置空
+//        borrowCount--;
+        setBorrowCount(getBorrowCount() - 1);//借阅数量加1
     }
 
     //获取用户借阅次数
