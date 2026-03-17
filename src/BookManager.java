@@ -49,8 +49,8 @@ public class BookManager {
     }
 
     //TODO
-    public findBookByTitle(String keyword){
-
+    public Book[] findBookByTitle(String keyword){
+        return null;
     }
 
     public void printAllBooks(){

@@ -10,7 +10,7 @@ public class Book {
         this.title = title;
         this.author = author;
         this.price = price;
-        this.status = AVAILABLE;
+        this.status = BookStatus.AVAILABLE;
     }
 
     public String getBookId(){
@@ -25,15 +25,15 @@ public class Book {
         return this.author;
     }
 
-    public String getPirce(){
+    public double getPirce(){
         return this.price;
     }
 
     public BookStatus getBookStatus(){
-        return this.BookStatus;
+        return this.status;
     }
 
-    public void setBookId(Sring bookId){
+    public void setBookId(String bookId){
         this.bookId = bookId;
     }
 
@@ -47,7 +47,7 @@ public class Book {
 
     public void setBookStatus(BookStatus bookStatus)
     {
-        this.bookStatus = bookStatus;
+        this.status = bookStatus;
     }
 
     public void printInfo(){
